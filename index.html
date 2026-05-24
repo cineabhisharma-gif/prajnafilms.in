@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Prajna Films — Independent film production house based in Mumbai. Feature Films · Ad Films · Documentary · Post Production. Founded by director Abhilash Sharma.">
+<title>Prajna Films — Independent Cinema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   PRAJNA FILMS  —  prajnafilms.in
+   Redesign: Loud · Bold · Readable · Mobile-First
+   Palette: Warm Black · Ivory White · Crimson Red
+═══════════════════════════════════════════════ */
+:root{
+  --black:    #040303;
+  --ink:      #0C0B0B;
+  --charcoal: #161414;
+  --soot:     #201D1D;
+  --ash:      #363030;
+  --smoke:    #5E5555;
+  --silver:   #908585;
+  --ivory:    #EDE8DF;
+  --white:    #F8F5EE;
+  --red:      #AD1A2A;
+  --red-bright:#C92035;
+  --red-dim:  #7A1220;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fs:'Josefin Sans',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  /* READABLE TEXT SIZES */
+  --body-lg:  19px;
+  --body-md:  17px;
+  --body-sm:  15px;
+  --label:    11px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--ivory);
+  font-family:var(--fd);
+  font-weight:300;
+  line-height:1.85;
+  overflow-x:hidden;
+  cursor:none;
+  font-size:18px; /* base — larger than before */
+}
+
+/* ══ GRAIN ══ */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;opacity:.025;
+  pointer-events:none;z-index:9000;
+  animation:grain .55s steps(2) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,2%)}
+  40%{transform:translate(2%,-2%)}60%{transform:translate(-1%,3%)}80%{transform:translate(3%,-1%)}
+}
+
+/* ══ CURSOR ══ */
+.cur{position:fixed;width:8px;height:8px;background:var(--white);border-radius:50%;
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cring{position:fixed;width:34px;height:34px;border:1px solid rgba(248,245,238,.4);
+  border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
+  transition:width .3s,height .3s,border-color .3s;}
+.cur.r{background:var(--red-bright);}
+.cring.r{border-color:rgba(173,26,42,.6);width:48px;height:48px;}
+
+/* ══ RAILS ══ */
+.rail{position:fixed;top:0;bottom:0;width:22px;background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:space-around;padding:14px 0;z-index:200;}
+.rail-l{left:0;border-right:1px solid rgba(248,245,238,.05);}
+.rail-r{right:0;border-left: 1px solid rgba(248,245,238,.05);}
+.perf{width:9px;height:7px;border:1px solid rgba(248,245,238,.2);border-radius:1px;flex-shrink:0;}
+
+/* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:22px;right:22px;
+  height:76px;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;
+  transition:background .4s,border-bottom .4s;
+}
+nav.scrolled{
+  background:rgba(4,3,3,.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(248,245,238,.08);
+}
+.brand{text-decoration:none;display:flex;flex-direction:column;line-height:1;}
+.brand-main{
+  font-family:var(--fd);font-size:22px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--white);
+}
+.brand-main b{color:var(--red);font-weight:700;}
+.brand-sub{
+  font-family:var(--fs);font-size:8px;font-weight:300;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);margin-top:4px;
+}
+.nlinks{display:flex;gap:36px;list-style:none;}
+.nlinks a{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--silver);text-decoration:none;
+  position:relative;transition:color .3s;
+}
+.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;
+  width:0;height:1px;background:var(--white);transition:width .3s;}
+.nlinks a:hover{color:var(--white);}
+.nlinks a:hover::after{width:100%;}
+.ncta{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--white);border:1px solid rgba(248,245,238,.35);
+  padding:10px 22px;text-decoration:none;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.ncta::before{content:'';position:absolute;inset:0;background:var(--white);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);z-index:-1;}
+.ncta:hover{color:var(--black);}
+.ncta:hover::before{transform:scaleX(1);}
+
+/* Hamburger */
+.ham{display:none;flex-direction:column;gap:6px;
+  background:none;border:none;cursor:pointer;padding:8px;}
+.ham span{display:block;width:24px;height:1.5px;background:var(--white);transition:all .3s;}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+
+/* Mobile drawer */
+.drawer{
+  display:none;position:fixed;
+  top:76px;left:0;right:0;
+  background:rgba(4,3,3,.97);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(248,245,238,.08);
+  padding:36px 28px 44px;
+  flex-direction:column;z-index:490;
+  opacity:0;transform:translateY(-8px);
+  transition:opacity .3s,transform .3s;
+}
+.drawer.open{display:flex;opacity:1;transform:translateY(0);}
+.drawer a{
+  font-family:var(--fs);font-size:12px;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--silver);text-decoration:none;
+  padding:17px 0;border-bottom:1px solid rgba(248,245,238,.07);
+  transition:color .3s;
+}
+.drawer a:hover,.drawer a:active{color:var(--white);}
+.drawer .d-cta{
+  margin-top:22px;border:1px solid rgba(248,245,238,.35);
+  color:var(--white);padding:15px;text-align:center;
+  border-bottom:1px solid rgba(248,245,238,.35);
+}
+
+/* ══════════════════════════════════════
+   HERO — Human Eye + PRAJNA FILMS LOUD
+══════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;
+}
+/* Scanlines */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.06) 2px,rgba(0,0,0,.06) 3px);
+  pointer-events:none;z-index:3;
+}
+/* Full-bleed eye SVG */
+.hero-eye{
+  position:absolute;inset:0;z-index:1;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-eye svg{
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:.55;
+}
+/* gradient overlay — bottom and edges darker for text legibility */
+.hero-veil{
+  position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(to bottom,rgba(4,3,3,.62) 0%,rgba(4,3,3,.35) 40%,rgba(4,3,3,.55) 70%,rgba(4,3,3,.88) 100%),
+    radial-gradient(ellipse 80% 80% at 50% 50%,transparent 40%,rgba(4,3,3,.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:10;
+  text-align:center;
+  padding:0 40px;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+}
+/* THE BIG LOUD TITLE */
+.hero-wordmark{
+  font-family:var(--fd);
+  font-size:clamp(72px,13vw,180px);
+  font-weight:700;
+  line-height:.88;
+  letter-spacing:-.01em;
+  text-transform:uppercase;
+  color:var(--white);
+  margin-bottom:0;
+}
+.hero-wordmark em{
+  font-style:italic;font-weight:300;
+  color:var(--ivory);letter-spacing:.02em;
+  display:block;font-size:.72em;
+}
+/* FILMS word — outlined / ghost */
+.hero-wordmark span{
+  display:block;
+  font-weight:300;
+  font-size:.62em;
+  letter-spacing:.35em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(248,245,238,.55);
+  text-stroke:1px rgba(248,245,238,.55);
+}
+/* Tagline below */
+.hero-tag{
+  font-family:var(--fs);font-size:12px;font-weight:300;
+  letter-spacing:.55em;text-transform:uppercase;
+  color:var(--silver);margin:28px 0 48px;
+  display:flex;align-items:center;justify-content:center;gap:20px;
+}
+.hero-tag::before,.hero-tag::after{
+  content:'';display:block;width:48px;height:1px;
+}
+.hero-tag::before{background:linear-gradient(90deg,transparent,var(--smoke));}
+.hero-tag::after{background:linear-gradient(90deg,var(--smoke),transparent);}
+
+/* SERVICES STRIP — the categories */
+.hero-services{
+  display:flex;gap:0;justify-content:center;
+  flex-wrap:wrap;
+  max-width:900px;margin:0 auto 52px;
+}
+.hero-service{
+  padding:14px 28px;
+  border:1px solid rgba(248,245,238,.15);
+  font-family:var(--fs);font-size:11px;font-weight:300;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ivory);
+  position:relative;transition:all .3s;
+  margin:-1px;
+}
+.hero-service:hover{
+  background:rgba(248,245,238,.06);
+  border-color:rgba(248,245,238,.35);
+  color:var(--white);
+}
+.hero-service.red-s{
+  background:var(--red);border-color:var(--red);
+  color:var(--white);
+}
+.hero-service.red-s:hover{background:var(--red-bright);}
+.hero-acts{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+}
+.btn-w{
+  font-family:var(--fs);font-size:11px;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--black);background:var(--white);
+  padding:17px 48px;text-decoration:none;
+  display:inline-block;transition:all .3s;
+}
+.btn-w:hover{background:var(--ivory);letter-spacing:.42em;}
+.btn-o{
+  font-family:var(--fs);font-size:11px;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--white);border:1px solid rgba(248,245,238,.35);
+  padding:17px 48px;text-decoration:none;
+  display:inline-block;transition:all .3s;
+}
+.btn-o:hover{border-color:var(--white);letter-spacing:.42em;}
+.btn-r{
+  font-family:var(--fs);font-size:11px;font-weight:300;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--white);background:var(--red);
+  padding:17px 48px;text-decoration:none;
+  display:inline-block;transition:all .3s;
+}
+.btn-r:hover{background:var(--red-bright);letter-spacing:.42em;}
+
+/* Scroll indicator */
+.s-ind{position:absolute;bottom:40px;left:50%;
+  transform:translateX(-50%);z-index:10;
+  display:flex;flex-direction:column;align-items:center;gap:10px;}
+.s-ind span{font-family:var(--fs);font-size:9px;
+  letter-spacing:.45em;text-transform:uppercase;color:var(--smoke);}
+.s-line{width:1px;height:52px;
+  background:linear-gradient(to bottom,var(--smoke),transparent);
+  animation:sl 2.2s ease-in-out infinite;}
+@keyframes sl{
+  0%{transform:scaleY(0);transform-origin:top;opacity:0}
+  50%{transform:scaleY(1);transform-origin:top;opacity:1}
+  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
+}
+
+/* ══════════════════════════════════════
+   AWARDS TICKER
+══════════════════════════════════════ */
+.ticker{
+  background:var(--red);
+  padding:14px 0;overflow:hidden;cursor:default;
+}
+.ticker-track{
+  display:flex;width:max-content;
+  animation:tick 30s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick-item{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.38em;text-transform:uppercase;
+  color:rgba(248,245,238,.92);
+  white-space:nowrap;padding:0 44px;
+  display:flex;align-items:center;gap:18px;
+}
+.tick-item::after{content:'✦';color:rgba(248,245,238,.35);font-size:8px;}
+
+/* ══════════════════════════════════════
+   SHARED SECTION UTILITIES
+══════════════════════════════════════ */
+.sec{padding:120px;}
+.sec-sm{padding:100px 120px;}
+.sec-ey{
+  font-family:var(--fs);font-size:var(--label);font-weight:300;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);margin-bottom:18px;
+  display:flex;align-items:center;gap:16px;
+}
+.sec-ey::before{content:'';display:inline-block;width:28px;height:1px;background:var(--smoke);}
+.sec-h{
+  font-family:var(--fd);
+  font-size:clamp(36px,4.5vw,64px);
+  font-weight:300;color:var(--white);
+  line-height:1.1;margin-bottom:0;
+}
+.sec-h em{font-style:italic;color:var(--ivory);}
+.sec-h b{font-weight:600;color:var(--white);}
+.sec-p{
+  font-family:var(--fd);font-size:var(--body-lg);
+  font-weight:300;color:var(--silver);
+  line-height:1.85;margin-bottom:20px;
+  max-width:640px;
+}
+.sec-p strong{color:var(--ivory);font-weight:400;}
+.sec-p em{font-style:italic;color:var(--ivory);}
+.divider{width:40px;height:1px;background:var(--smoke);margin:32px 0;}
+
+/* ══════════════════════════════════════
+   WHAT WE DO — SERVICES
+══════════════════════════════════════ */
+.services{
+  background:var(--ink);
+  padding:0;overflow:hidden;
+}
+.services-inner{
+  max-width:none;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.service-col{
+  padding:72px 48px;
+  border-right:1px solid rgba(248,245,238,.06);
+  position:relative;overflow:hidden;
+  transition:background .4s;
+}
+.service-col:last-child{border-right:none;}
+.service-col:hover{background:var(--charcoal);}
+.service-col::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:100%;height:3px;background:var(--red);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.service-col:hover::after{transform:scaleX(1);}
+.svc-num{
+  font-family:var(--fd);font-size:72px;font-weight:300;
+  color:rgba(248,245,238,.05);line-height:1;
+  position:absolute;top:20px;right:20px;
+}
+.svc-ico{font-size:32px;margin-bottom:20px;display:block;}
+.svc-h{
+  font-family:var(--fd);font-size:28px;font-weight:600;
+  color:var(--white);margin-bottom:14px;
+  letter-spacing:.02em;line-height:1.2;
+}
+.svc-p{
+  font-family:var(--fd);font-size:var(--body-sm);
+  color:var(--silver);line-height:1.8;margin-bottom:20px;
+}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.svc-tag{
+  font-family:var(--fs);font-size:9px;font-weight:300;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--smoke);border:1px solid rgba(248,245,238,.1);
+  padding:5px 12px;transition:all .3s;
+}
+.service-col:hover .svc-tag{border-color:rgba(248,245,238,.2);color:var(--silver);}
+
+/* ══════════════════════════════════════
+   SWAHA — FLAGSHIP FILM
+══════════════════════════════════════ */
+.swaha{
+  background:var(--black);padding:120px;
+  position:relative;overflow:hidden;
+}
+.swaha::before{
+  content:'स्वाहा';
+  position:absolute;right:-10px;top:50%;
+  transform:translateY(-50%);
+  font-family:var(--fd);font-size:280px;font-weight:700;
+  color:rgba(248,245,238,.018);line-height:1;
+  pointer-events:none;
+}
+.swaha-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.swaha-lang{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.4em;text-transform:uppercase;
+  color:var(--red);margin-bottom:18px;display:block;
+}
+.swaha-h{
+  font-family:var(--fd);
+  font-size:clamp(48px,6vw,88px);
+  font-weight:300;color:var(--white);
+  line-height:.92;margin-bottom:6px;
+}
+.swaha-h em{font-style:italic;color:var(--ivory);}
+.swaha-en{
+  font-family:var(--fd);font-size:20px;
+  font-style:italic;color:var(--smoke);
+  margin-bottom:32px;display:block;
+}
+.swaha-p{
+  font-family:var(--fd);font-size:var(--body-md);
+  color:var(--silver);line-height:1.9;margin-bottom:18px;
+}
+.swaha-p strong{color:var(--ivory);font-weight:400;}
+.awards-list{
+  margin:32px 0;display:flex;flex-direction:column;gap:14px;
+}
+.aw{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:16px 20px;
+  border-left:3px solid var(--red);
+  background:rgba(173,26,42,.07);
+}
+.aw-ico{color:var(--red);font-size:18px;flex-shrink:0;margin-top:2px;}
+.aw-title{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--white);display:block;margin-bottom:5px;
+}
+.aw-sub{
+  font-family:var(--fd);font-size:var(--body-sm);
+  color:var(--smoke);line-height:1.55;display:block;
+}
+.swaha-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;}
+
+/* Poster */
+.poster{
+  width:100%;aspect-ratio:2/3;
+  background:var(--charcoal);
+  border:1px solid rgba(248,245,238,.08);
+  position:relative;overflow:hidden;
+}
+.poster::after{
+  content:'';position:absolute;top:0;right:0;
+  width:0;height:0;
+  border-top:56px solid var(--red);
+  border-left:56px solid transparent;
+}
+.poster-body{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;
+  padding:36px 28px;
+  background:
+    linear-gradient(180deg,var(--charcoal) 0%,var(--soot) 55%,var(--charcoal) 100%);
+}
+.poster-title-dev{
+  font-family:var(--fd);font-size:clamp(48px,6vw,80px);
+  font-weight:300;color:var(--white);
+  text-align:center;line-height:1;letter-spacing:.06em;
+}
+.poster-title-en{
+  font-family:var(--fs);font-size:10px;font-weight:200;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);text-align:center;margin-top:10px;
+}
+.poster-line{width:32px;height:2px;background:var(--red);margin:0 auto;}
+.poster-still{
+  width:100%;flex:1;min-height:0;margin:28px 0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.14) 2px,rgba(0,0,0,.14) 3px),
+    linear-gradient(165deg,#0D0B0B 0%,#1A1717 45%,#090808 75%,#141212 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.poster-still-txt{
+  font-family:var(--fd);font-size:12px;font-style:italic;
+  color:rgba(248,245,238,.18);letter-spacing:.18em;
+  text-align:center;padding:20px;
+}
+.poster-credits{text-align:center;}
+.poster-cast{
+  font-family:var(--fd);font-size:13px;
+  color:var(--silver);display:block;margin-bottom:6px;
+}
+.poster-prod{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.4em;text-transform:uppercase;
+  color:var(--smoke);display:block;
+}
+/* Laurels */
+.laurels{display:flex;gap:0;margin-top:18px;}
+.lau{
+  flex:1;padding:14px 10px;
+  border:1px solid rgba(248,245,238,.08);
+  text-align:center;margin:-1px;
+  transition:border-color .3s;
+}
+.lau:hover{border-color:rgba(248,245,238,.2);}
+.lau-top{
+  font-family:var(--fs);font-size:8px;font-weight:200;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--smoke);display:block;margin-bottom:5px;
+}
+.lau-main{
+  font-family:var(--fd);font-size:15px;font-weight:600;
+  color:var(--ivory);display:block;line-height:1.2;
+}
+.lau-yr{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.28em;color:var(--smoke);
+  display:block;margin-top:4px;
+}
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+.about{
+  background:var(--charcoal);padding:120px;
+  position:relative;overflow:hidden;
+}
+.about::before{
+  content:'"';position:absolute;
+  top:20px;left:60px;
+  font-family:var(--fd);font-size:340px;
+  color:rgba(248,245,238,.022);line-height:1;
+  font-weight:600;pointer-events:none;
+}
+.about-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:280px 1fr;
+  gap:100px;align-items:start;
+}
+.about-label{
+  font-family:var(--fs);font-size:9px;font-weight:300;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);writing-mode:vertical-lr;
+  transform:rotate(180deg);padding-top:6px;
+}
+.about-right h2{
+  font-family:var(--fd);font-size:clamp(30px,3.5vw,52px);
+  font-weight:300;color:var(--white);
+  line-height:1.2;margin-bottom:28px;
+}
+.about-right h2 em{font-style:italic;color:var(--ivory);}
+.about-right .sec-p{font-size:var(--body-lg);}
+.values{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:48px;
+}
+.val{
+  padding:28px 24px;background:var(--soot);
+  border-top:2px solid rgba(248,245,238,.15);
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.val:hover{background:var(--ash);border-color:var(--white);transform:translateY(-3px);}
+.val-n{
+  font-family:var(--fd);font-size:48px;font-weight:300;
+  color:rgba(248,245,238,.08);line-height:1;margin-bottom:10px;
+}
+.val h3{
+  font-family:var(--fd);font-size:22px;font-weight:600;
+  color:var(--white);margin-bottom:10px;letter-spacing:.03em;
+}
+.val p{
+  font-family:var(--fd);font-size:var(--body-sm);
+  color:var(--silver);line-height:1.75;
+}
+
+/* ══════════════════════════════════════
+   DIRECTOR / FOUNDER
+══════════════════════════════════════ */
+.director{
+  background:var(--black);padding:0;overflow:hidden;
+}
+.director-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:700px;
+}
+/* Portrait column */
+.dir-portrait{
+  background:var(--charcoal);
+  display:flex;align-items:stretch;justify-content:stretch;
+  min-height:560px;
+  position:relative;                /* needed for name overlay */
+  overflow:hidden;
+  border-right:1px solid rgba(248,245,238,.05);
+}
+.dir-portrait::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:100%;background:var(--red);
+  z-index:3;
+}
+.dir-frame{
+  width:100%;max-width:360px;
+  border:1px solid rgba(248,245,238,.08);
+  padding:36px;text-align:center;
+  position:relative;
+}
+.dir-frame::before{
+  content:'';position:absolute;top:-1px;left:40px;right:40px;
+  height:3px;background:var(--red);
+}
+.dir-initial{
+  font-family:var(--fd);font-size:130px;font-weight:300;
+  color:rgba(248,245,238,.05);line-height:1;
+  letter-spacing:-.04em;display:block;
+}
+.dir-card{
+  padding-top:22px;
+  border-top:1px solid rgba(248,245,238,.07);
+}
+.dir-name{
+  font-family:var(--fd);font-size:34px;font-weight:600;
+  color:var(--white);display:block;margin-bottom:8px;
+  letter-spacing:.04em;
+}
+.dir-role{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.48em;text-transform:uppercase;
+  color:var(--red);display:block;margin-bottom:5px;
+}
+.dir-org{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.42em;text-transform:uppercase;
+  color:var(--smoke);display:block;
+}
+/* Bio column */
+.dir-bio{
+  padding:80px 72px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--ink);
+}
+.dir-bio-h{
+  font-family:var(--fd);font-size:clamp(28px,3vw,46px);
+  font-weight:300;color:var(--white);
+  line-height:1.2;margin-bottom:28px;
+}
+.dir-bio-h em{font-style:italic;color:var(--ivory);}
+.dir-bio p{
+  font-family:var(--fd);font-size:var(--body-md);
+  color:var(--silver);line-height:1.9;margin-bottom:18px;
+}
+.dir-bio p strong{color:var(--white);font-weight:400;}
+.dir-bio p em{font-style:italic;color:var(--ivory);}
+.dir-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:28px;margin-top:40px;
+  padding-top:36px;
+  border-top:1px solid rgba(248,245,238,.07);
+}
+.ds .ds-n{
+  font-family:var(--fd);font-size:52px;font-weight:300;
+  color:var(--white);line-height:1;display:block;
+}
+.ds .ds-n em{font-style:normal;color:var(--red);}
+.ds .ds-l{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.35em;text-transform:uppercase;
+  color:var(--smoke);display:block;margin-top:6px;
+}
+
+/* ══════════════════════════════════════
+   PHILOSOPHY QUOTE
+══════════════════════════════════════ */
+.philoq{
+  padding:160px 120px;
+  background:var(--ink);
+  text-align:center;position:relative;overflow:hidden;
+}
+.philoq::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(173,26,42,.04) 0%,transparent 70%);
+}
+.philoq-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
+.philoq-eye{
+  font-family:var(--fs);font-size:10px;font-weight:200;
+  letter-spacing:.6em;text-transform:uppercase;
+  color:var(--smoke);margin-bottom:32px;
+  display:flex;align-items:center;justify-content:center;gap:18px;
+}
+.philoq-eye::before,.philoq-eye::after{
+  content:'';display:block;width:38px;height:1px;background:var(--smoke);
+}
+.philoq blockquote p{
+  font-family:var(--fd);
+  font-size:clamp(24px,3.2vw,42px);
+  font-weight:300;font-style:italic;
+  color:var(--white);line-height:1.5;
+  letter-spacing:.02em;margin-bottom:28px;
+}
+.philoq blockquote p em{color:var(--red);font-style:normal;}
+.philoq cite{
+  font-family:var(--fs);font-size:10px;font-weight:200;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);font-style:normal;
+}
+/* Three philosophy pillars */
+.philo-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:90px;
+}
+.philo-card{
+  padding:44px 36px;background:var(--charcoal);
+  text-align:left;position:relative;overflow:hidden;
+  transition:background .35s;
+}
+.philo-card:hover{background:var(--soot);}
+.philo-card::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:100%;height:3px;background:var(--red);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.philo-card:hover::after{transform:scaleX(1);}
+.philo-n{
+  font-family:var(--fd);font-size:68px;font-weight:300;
+  color:rgba(248,245,238,.05);line-height:1;
+  position:absolute;top:18px;right:22px;
+}
+.philo-card h3{
+  font-family:var(--fd);font-size:26px;font-weight:600;
+  color:var(--ivory);margin-bottom:14px;letter-spacing:.03em;
+}
+.philo-card p{
+  font-family:var(--fd);font-size:var(--body-sm);
+  color:var(--smoke);line-height:1.8;
+}
+
+/* ══════════════════════════════════════
+   PRESS
+══════════════════════════════════════ */
+.press{
+  padding:120px;background:var(--charcoal);
+}
+.press-inner{max-width:1100px;margin:0 auto;}
+.press-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;margin-top:60px;
+}
+.press-card{
+  padding:40px 32px;background:var(--soot);
+  border-top:1px solid rgba(248,245,238,.07);
+  transition:background .3s;
+}
+.press-card:hover{background:var(--ash);}
+.press-src{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.4em;text-transform:uppercase;
+  color:var(--smoke);margin-bottom:18px;display:block;
+}
+.press-q{
+  font-family:var(--fd);font-size:20px;
+  font-style:italic;color:var(--ivory);
+  line-height:1.65;margin-bottom:24px;
+}
+.press-lnk{
+  font-family:var(--fs);font-size:10px;font-weight:300;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--smoke);text-decoration:none;
+  display:flex;align-items:center;gap:10px;
+  transition:color .3s,gap .3s;
+}
+.press-lnk:hover{color:var(--white);gap:18px;}
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+.contact{
+  padding:160px 120px;background:var(--black);
+  text-align:center;position:relative;overflow:hidden;
+}
+.contact::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(248,245,238,.015) 0%,transparent 70%);
+}
+.contact-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.contact-inner h2{
+  font-family:var(--fd);font-size:clamp(36px,4.5vw,64px);
+  font-weight:300;color:var(--white);
+  line-height:1.15;margin-bottom:20px;
+}
+.contact-inner h2 em{font-style:italic;color:var(--ivory);}
+.contact-inner .sec-p{
+  font-size:var(--body-lg);
+  margin:0 auto 48px;color:var(--silver);
+}
+.contact-row{
+  display:flex;justify-content:center;
+  gap:56px;margin-bottom:48px;flex-wrap:wrap;
+}
+.ci .ci-lbl{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:var(--smoke);display:block;margin-bottom:6px;
+}
+.ci .ci-val{
+  font-family:var(--fd);font-size:18px;
+  color:var(--ivory);display:block;
+}
+.ci a{color:inherit;text-decoration:none;transition:color .3s;}
+.ci a:hover{color:var(--white);}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{
+  background:var(--ink);
+  border-top:1px solid rgba(248,245,238,.06);
+  padding:80px 120px 40px;
+}
+.ft{max-width:1100px;margin:0 auto;}
+.ft-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:72px;margin-bottom:72px;
+}
+.fb-logo{
+  font-family:var(--fd);font-size:28px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--white);display:block;margin-bottom:6px;
+}
+.fb-logo b{color:var(--red);}
+.fb-sub{
+  font-family:var(--fs);font-size:8px;font-weight:200;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--smoke);display:block;margin-bottom:20px;
+}
+.fb-desc{
+  font-family:var(--fd);font-size:15px;
+  color:var(--smoke);line-height:1.75;max-width:240px;
+}
+.fc h4{
+  font-family:var(--fs);font-size:9px;font-weight:300;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:var(--smoke);margin-bottom:22px;
+  padding-bottom:14px;border-bottom:1px solid rgba(248,245,238,.07);
+}
+.fc ul{list-style:none;}
+.fc ul li{margin-bottom:11px;}
+.fc ul li a{
+  font-family:var(--fd);font-size:16px;
+  font-weight:300;color:var(--smoke);
+  text-decoration:none;transition:color .3s;
+}
+.fc ul li a:hover{color:var(--ivory);}
+.ft-bot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.04);
+  flex-wrap:wrap;gap:16px;
+}
+.ft-bot p{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.28em;color:var(--smoke);
+}
+.ft-blinks{display:flex;gap:28px;list-style:none;}
+.ft-blinks a{
+  font-family:var(--fs);font-size:9px;font-weight:200;
+  letter-spacing:.28em;color:var(--smoke);
+  text-decoration:none;transition:color .3s;
+}
+.ft-blinks a:hover{color:var(--silver);}
+
+/* ══════════════════════════════════════
+   REVEAL ANIMATIONS
+══════════════════════════════════════ */
+.reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.12s}.rd2{transition-delay:.24s}
+.rd3{transition-delay:.36s}.rd4{transition-delay:.48s}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE FIRST
+   480 · 640 · 768 · 1024 · 1200
+══════════════════════════════════════ */
+@media(max-width:1200px){
+  .sec,.sec-sm,.swaha,.about,.philoq,.press,.contact,footer{padding-left:72px;padding-right:72px;}
+  nav{padding:0 40px;}
+  .swaha-inner{gap:60px;}
+  .about-inner{gap:64px;}
+  .dir-bio{padding:64px 52px;}
+  .ft-top{gap:52px;}
+}
+@media(max-width:1024px){
+  /* Nav */
+  .nlinks,.ncta{display:none;}
+  .ham{display:flex;}
+  nav{left:0;right:0;padding:0 24px;}
+  .rail{display:none;}
+  /* Hero */
+  .hero{padding-top:76px;}
+  .hero-wordmark{font-size:clamp(64px,12vw,140px);}
+  .hero-services{max-width:700px;}
+  .hero-service{padding:12px 22px;}
+  /* Services */
+  .services-inner{grid-template-columns:1fr 1fr;}
+  .service-col{border-bottom:1px solid rgba(248,245,238,.06);}
+  .service-col:nth-child(2){border-right:none;}
+  /* Swaha */
+  .swaha,.about,.philoq,.press,.contact{padding-left:60px;padding-right:60px;}
+  .swaha-inner{grid-template-columns:1fr;gap:60px;}
+  .swaha::before{display:none;}
+  /* About */
+  .about-inner{grid-template-columns:1fr;gap:36px;}
+  .about-label{writing-mode:horizontal-tb;transform:none;}
+  .values{grid-template-columns:1fr 1fr;}
+  /* Director */
+  .director-inner{grid-template-columns:1fr;}
+  .dir-bio{padding:56px 60px;}
+  /* Philo */
+  .philo-grid{grid-template-columns:1fr 1fr;}
+  /* Press */
+  .press-grid{grid-template-columns:1fr 1fr;}
+  /* Footer */
+  footer{padding:64px 60px 36px;}
+  .ft-top{grid-template-columns:1fr 1fr;gap:48px;}
+}
+@media(max-width:768px){
+  nav{left:0;right:0;padding:0 20px;height:70px;}
+  .drawer{top:70px;}
+  .hero{padding-top:70px;min-height:100svh;}
+  .hero-wordmark{font-size:clamp(56px,14vw,100px);}
+  .hero-tag{font-size:10px;letter-spacing:.35em;}
+  .hero-services{flex-direction:column;align-items:center;gap:2px;padding:0 20px;}
+  .hero-service{width:100%;max-width:300px;text-align:center;}
+  .hero-acts{flex-direction:column;align-items:center;gap:12px;padding:0 20px;}
+  .btn-w,.btn-o,.btn-r{width:100%;max-width:280px;text-align:center;padding:16px 32px;}
+  .services-inner{grid-template-columns:1fr;}
+  .service-col{padding:52px 32px;border-right:none !important;}
+  .svc-h{font-size:26px;}
+  .swaha,.about,.philoq,.press,.contact{padding:80px 24px;}
+  footer{padding:56px 24px 28px;}
+  .swaha-h{font-size:clamp(44px,10vw,72px);}
+  .swaha-en{font-size:18px;}
+  .swaha-p{font-size:var(--body-md);}
+  .about-right h2{font-size:clamp(26px,7vw,42px);}
+  .values{grid-template-columns:1fr;}
+  .director-inner{grid-template-columns:1fr;}
+  .dir-portrait{padding:48px 28px;}
+  .dir-bio{padding:44px 24px;}
+  .dir-stats{grid-template-columns:1fr 1fr 1fr;}
+  .ds .ds-n{font-size:40px;}
+  .philoq{padding:90px 24px;}
+  .philo-grid{grid-template-columns:1fr;}
+  .press-grid{grid-template-columns:1fr;}
+  .contact{padding:90px 24px;}
+  .contact-row{gap:28px;}
+  .ft-top{grid-template-columns:1fr;gap:40px;}
+  .ft-bot{flex-direction:column;align-items:flex-start;}
+  .laurels{flex-direction:column;}
+  .lau{width:100%;}
+}
+@media(max-width:640px){
+  .hero-wordmark{font-size:clamp(48px,15vw,88px);}
+  .hero-wordmark em{font-size:.65em;}
+  .hero-wordmark span{font-size:.55em;letter-spacing:.25em;}
+  .hero-tag{font-size:9px;letter-spacing:.28em;}
+  .hero-tag::before,.hero-tag::after{width:28px;}
+  .swaha{padding:64px 20px;}
+  .about{padding:64px 20px;}
+  .swaha-awards .aw{padding:14px 16px;gap:12px;}
+  .aw-title{font-size:9px;}
+  .aw-sub{font-size:13px;}
+  .philo-card{padding:32px 24px;}
+  .philo-card h3{font-size:22px;}
+  .press-card{padding:32px 24px;}
+  .press-q{font-size:18px;}
+  .philoq blockquote p{font-size:clamp(20px,6vw,30px);}
+  .contact-inner h2{font-size:clamp(30px,9vw,48px);}
+  .dir-bio-h{font-size:clamp(24px,7vw,36px);}
+  .dir-bio{padding:40px 20px;}
+}
+@media(max-width:480px){
+  nav{height:64px;padding:0 16px;}
+  .drawer{top:64px;}
+  .brand-main{font-size:18px;}
+  .hero{padding-top:64px;}
+  .hero-wordmark{font-size:clamp(40px,16vw,72px);}
+  .hero-content{padding:0 16px;}
+  .swaha{padding:56px 16px;}
+  .about{padding:56px 16px;}
+  .philoq{padding:72px 16px;}
+  .press{padding:72px 16px;}
+  .contact{padding:72px 16px;}
+  footer{padding:48px 16px 24px;}
+  .dir-frame{padding:24px 18px;}
+  .dir-initial{font-size:100px;}
+  .dir-name{font-size:28px;}
+  .dir-stats{grid-template-columns:1fr 1fr;}
+  .values{gap:2px;}
+  .val{padding:22px 18px;}
+  .val h3{font-size:20px;}
+  .swaha-btns{flex-direction:column;align-items:flex-start;}
+  .swaha-btns .btn-r,.swaha-btns .btn-o{width:100%;text-align:center;}
+  .ft-blinks{flex-wrap:wrap;gap:18px;}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cur" id="cur"></div>
+<div class="cring" id="cring"></div>
+
+<!-- FILM RAILS -->
+<div class="rail rail-l" aria-hidden="true">
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+</div>
+<div class="rail rail-r" aria-hidden="true">
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+  <div class="perf"></div><div class="perf"></div><div class="perf"></div><div class="perf"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="brand">
+    <span class="brand-main">Prajna<b> Films</b></span>
+    <span class="brand-sub">Independent Cinema</span>
+  </a>
+  <ul class="nlinks">
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#swaha">Swaha</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#director">Director</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="ncta">Connect</a>
+  <button class="ham" id="ham" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer">
+  <a href="#work"       class="dl">Our Work</a>
+  <a href="#swaha"      class="dl">Swaha</a>
+  <a href="#about"      class="dl">About</a>
+  <a href="#director"   class="dl">Director</a>
+  <a href="#philosophy" class="dl">Philosophy</a>
+  <a href="#press"      class="dl">Press</a>
+  <a href="#contact"    class="dl d-cta">Connect</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO — Human Eye + Prajna Films Big
+══════════════════════════════════════ -->
+<section class="hero" id="home">
+
+  <!-- HUMAN EYE SVG — full bleed B&W artwork -->
+  <div class="hero-eye" aria-hidden="true">
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <radialGradient id="iris-g" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#2A2424"/>
+          <stop offset="30%"  stop-color="#1A1616"/>
+          <stop offset="60%"  stop-color="#0E0C0C"/>
+          <stop offset="100%" stop-color="#060404"/>
+        </radialGradient>
+        <radialGradient id="pupil-g" cx="45%" cy="42%" r="50%">
+          <stop offset="0%"   stop-color="#1A1818"/>
+          <stop offset="100%" stop-color="#040303"/>
+        </radialGradient>
+        <radialGradient id="catchlight" cx="35%" cy="35%" r="50%">
+          <stop offset="0%"   stop-color="rgba(248,245,238,.6)"/>
+          <stop offset="100%" stop-color="rgba(248,245,238,0)"/>
+        </radialGradient>
+        <filter id="soft">
+          <feGaussianBlur stdDeviation="2.5"/>
+        </filter>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="6" result="b"/>
+          <feComposite in="SourceGraphic" in2="b" operator="over"/>
+        </filter>
+        <filter id="sharp">
+          <feConvolveMatrix order="3" kernelMatrix="0 -0.5 0 -0.5 3 -0.5 0 -0.5 0"/>
+        </filter>
+        <clipPath id="eye-clip">
+          <path d="M100,350 C200,180 400,100 600,100 C800,100 1000,180 1100,350 C1000,520 800,600 600,600 C400,600 200,520 100,350 Z"/>
+        </clipPath>
+        <radialGradient id="eye-vignette" cx="50%" cy="50%" r="55%">
+          <stop offset="30%" stop-color="transparent"/>
+          <stop offset="100%" stop-color="rgba(4,3,3,.85)"/>
+        </radialGradient>
+      </defs>
+
+      <!-- base dark -->
+      <rect width="1200" height="700" fill="#040303"/>
+
+      <!-- eye white / sclera — subtle texture -->
+      <path d="M100,350 C200,180 400,100 600,100 C800,100 1000,180 1100,350 C1000,520 800,600 600,600 C400,600 200,520 100,350 Z"
+            fill="#1A1818" stroke="none"/>
+      <!-- subtle sclera veins -->
+      <g clip-path="url(#eye-clip)" opacity=".35">
+        <path d="M250,300 Q320,290 380,310" fill="none" stroke="#3A2828" stroke-width="1.2"/>
+        <path d="M220,360 Q300,345 360,365" fill="none" stroke="#3A2828" stroke-width=".8"/>
+        <path d="M820,295 Q880,285 940,300" fill="none" stroke="#3A2828" stroke-width="1"/>
+        <path d="M840,375 Q900,365 960,380" fill="none" stroke="#3A2828" stroke-width=".8"/>
+        <path d="M270,320 Q310,308 340,325" fill="none" stroke="#2E2020" stroke-width=".6"/>
+        <path d="M860,330 Q900,320 930,335" fill="none" stroke="#2E2020" stroke-width=".6"/>
+      </g>
+
+      <!-- iris outer ring — rim light -->
+      <circle cx="600" cy="350" r="195" fill="none" stroke="#2A2020" stroke-width="12" opacity=".8"/>
+      <circle cx="600" cy="350" r="196" fill="none" stroke="rgba(248,245,238,.06)" stroke-width="1.5"/>
+
+      <!-- iris body -->
+      <circle cx="600" cy="350" r="194" fill="url(#iris-g)"/>
+
+      <!-- iris texture — radial fibers -->
+      <g opacity=".4" clip-path="url(#eye-clip)">
+        <!-- many fine fibers radiating outward -->
+        <line x1="600" y1="350" x2="600" y2="156" stroke="#3A3030" stroke-width=".6"/>
+        <line x1="600" y1="350" x2="600" y2="544" stroke="#3A3030" stroke-width=".6"/>
+        <line x1="600" y1="350" x2="406" y2="350" stroke="#3A3030" stroke-width=".6"/>
+        <line x1="600" y1="350" x2="794" y2="350" stroke="#3A3030" stroke-width=".6"/>
+        <line x1="600" y1="350" x2="463" y2="213" stroke="#3A3030" stroke-width=".5"/>
+        <line x1="600" y1="350" x2="737" y2="213" stroke="#3A3030" stroke-width=".5"/>
+        <line x1="600" y1="350" x2="463" y2="487" stroke="#3A3030" stroke-width=".5"/>
+        <line x1="600" y1="350" x2="737" y2="487" stroke="#3A3030" stroke-width=".5"/>
+        <line x1="600" y1="350" x2="421" y2="254" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="779" y2="254" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="421" y2="446" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="779" y2="446" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="504" y2="165" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="696" y2="165" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="504" y2="535" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="696" y2="535" stroke="#2E2828" stroke-width=".4"/>
+        <line x1="600" y1="350" x2="408" y2="308" stroke="#2A2020" stroke-width=".35"/>
+        <line x1="600" y1="350" x2="792" y2="308" stroke="#2A2020" stroke-width=".35"/>
+        <line x1="600" y1="350" x2="408" y2="392" stroke="#2A2020" stroke-width=".35"/>
+        <line x1="600" y1="350" x2="792" y2="392" stroke="#2A2020" stroke-width=".35"/>
+        <!-- outer iris ring detail -->
+        <circle cx="600" cy="350" r="170" fill="none" stroke="#2A2020" stroke-width=".5" stroke-dasharray="3 5"/>
+        <circle cx="600" cy="350" r="145" fill="none" stroke="#302828" stroke-width=".4" stroke-dasharray="2 7"/>
+        <circle cx="600" cy="350" r="120" fill="none" stroke="#282020" stroke-width=".4" stroke-dasharray="4 4"/>
+      </g>
+
+      <!-- limbal ring — dark outer iris edge -->
+      <circle cx="600" cy="350" r="186" fill="none" stroke="#0A0808" stroke-width="18" opacity=".9"/>
+
+      <!-- pupil -->
+      <circle cx="600" cy="350" r="90" fill="url(#pupil-g)"/>
+      <!-- pupil depth -->
+      <circle cx="600" cy="350" r="86" fill="#030202"/>
+      <circle cx="600" cy="350" r="82" fill="#040303" opacity=".95"/>
+
+      <!-- catchlight — the tiny white reflection that makes eyes alive -->
+      <ellipse cx="558" cy="312" rx="22" ry="16"
+               fill="url(#catchlight)" opacity=".9"/>
+      <ellipse cx="558" cy="312" rx="10" ry="7"
+               fill="rgba(248,245,238,.5)"/>
+      <!-- secondary smaller catchlight -->
+      <ellipse cx="636" cy="388" rx="9" ry="6"
+               fill="rgba(248,245,238,.15)"/>
+
+      <!-- eyelids top — the curve of the upper lid -->
+      <path d="M80,350 C200,160 400,80 600,80 C800,80 1000,160 1120,350"
+            fill="var(--black)" stroke="none"/>
+      <path d="M100,350 C200,175 400,95 600,95 C800,95 1000,175 1100,350"
+            fill="#040303" stroke="#1A1818" stroke-width="1.5"/>
+      <!-- lashes top — a series of fine curved strokes -->
+      <g stroke="#0A0808" stroke-width="2" stroke-linecap="round" opacity=".9">
+        <path d="M230,270 C225,254 228,240 232,228" fill="none"/>
+        <path d="M270,240 C268,224 272,210 278,198" fill="none"/>
+        <path d="M320,218 C320,202 325,188 332,176" fill="none"/>
+        <path d="M375,204 C377,188 383,175 391,163" fill="none"/>
+        <path d="M435,196 C438,180 445,168 455,156" fill="none"/>
+        <path d="M500,192 C504,176 512,164 523,153" fill="none"/>
+        <path d="M565,192 C570,176 578,164 589,153" fill="none"/>
+        <path d="M630,196 C636,180 645,168 656,157" fill="none"/>
+        <path d="M692,203 C699,187 709,175 720,165" fill="none"/>
+        <path d="M750,216 C758,200 769,189 781,179" fill="none"/>
+        <path d="M805,235 C813,220 825,209 837,201" fill="none"/>
+        <path d="M854,260 C862,246 874,237 887,230" fill="none"/>
+        <path d="M895,290 C904,277 916,270 929,264" fill="none"/>
+        <path d="M930,322 C939,310 951,304 964,299" fill="none"/>
+      </g>
+
+      <!-- eyelids bottom -->
+      <path d="M100,350 C200,525 400,605 600,605 C800,605 1000,525 1100,350"
+            fill="#040303" stroke="#161414" stroke-width="1"/>
+      <!-- lower lashes — shorter and sparser -->
+      <g stroke="#0C0A0A" stroke-width="1.4" stroke-linecap="round" opacity=".7">
+        <path d="M250,430 C245,444 248,455 253,464" fill="none"/>
+        <path d="M310,460 C307,474 311,485 317,494" fill="none"/>
+        <path d="M380,480 C379,494 384,505 391,514" fill="none"/>
+        <path d="M460,492 C460,506 466,517 474,526" fill="none"/>
+        <path d="M545,497 C546,511 553,522 562,530" fill="none"/>
+        <path d="M635,494 C637,508 644,519 653,527" fill="none"/>
+        <path d="M720,485 C723,499 730,509 740,517" fill="none"/>
+        <path d="M800,467 C803,481 811,491 821,498" fill="none"/>
+        <path d="M870,442 C874,456 882,466 893,472" fill="none"/>
+        <path d="M930,412 C935,426 944,435 956,440" fill="none"/>
+      </g>
+
+      <!-- vignette over whole eye composition -->
+      <rect width="1200" height="700" fill="url(#eye-vignette)"/>
+      <!-- corners extra dark -->
+      <radialGradient id="corner-v" cx="0%" cy="0%" r="60%">
+        <stop offset="0%" stop-color="rgba(4,3,3,.6)"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </radialGradient>
+      <rect width="1200" height="700" fill="url(#corner-v)"/>
+    </svg>
+  </div>
+
+  <!-- gradient veil for readability -->
+  <div class="hero-veil"></div>
+
+  <!-- LOUD CONTENT -->
+  <div class="hero-content">
+    <h1 class="hero-wordmark">
+      Prajna
+      <span>Films</span>
+    </h1>
+
+    <div class="hero-tag">Independent Cinema · Mumbai · Est. 2021</div>
+
+    <!-- SERVICE CATEGORIES -->
+    <div class="hero-services">
+      <div class="hero-service red-s">Feature Films</div>
+      <div class="hero-service">Ad Films</div>
+      <div class="hero-service">Documentary</div>
+      <div class="hero-service">Post Production</div>
+      <div class="hero-service">Co-Production</div>
+    </div>
+
+    <div class="hero-acts">
+      <a href="#swaha"  class="btn-w">Our Film — Swaha</a>
+      <a href="#work"   class="btn-o">What We Do</a>
+    </div>
+  </div>
+
+  <div class="s-ind">
+    <span>Scroll</span>
+    <div class="s-line"></div>
+  </div>
+</section>
+
+<!-- AWARDS TICKER -->
+<div class="ticker" aria-label="Awards and recognitions">
+  <div class="ticker-track">
+    <span class="tick-item">Golden Goblet — Best Director · Shanghai IFF 2024</span>
+    <span class="tick-item">Golden Goblet — Best Actor · Shanghai IFF 2024</span>
+    <span class="tick-item">India Premiere · IFFK · Indian Cinema Now · 2024</span>
+    <span class="tick-item">World Premiere · Shanghai International Film Festival · June 2024</span>
+    <span class="tick-item">Asian New Talent Competition · Shanghai IFF 2024</span>
+    <span class="tick-item">Golden Goblet — Best Director · Shanghai IFF 2024</span>
+    <span class="tick-item">Golden Goblet — Best Actor · Shanghai IFF 2024</span>
+    <span class="tick-item">India Premiere · IFFK · Indian Cinema Now · 2024</span>
+    <span class="tick-item">World Premiere · Shanghai International Film Festival · June 2024</span>
+    <span class="tick-item">Asian New Talent Competition · Shanghai IFF 2024</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WHAT WE DO
+══════════════════════════════════════ -->
+<section id="work">
+  <div class="services">
+    <div class="services-inner">
+
+      <div class="service-col">
+        <div class="svc-num">01</div>
+        <span class="svc-ico">🎬</span>
+        <h3 class="svc-h">Feature Films</h3>
+        <p class="svc-p">From script to screen — we develop and produce narrative feature films that carry social and emotional weight. Stories that are made to last, for audiences everywhere.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Development</span>
+          <span class="svc-tag">Production</span>
+          <span class="svc-tag">Festival Circuit</span>
+        </div>
+      </div>
+
+      <div class="service-col">
+        <div class="svc-num">02</div>
+        <span class="svc-ico">📽</span>
+        <h3 class="svc-h">Ad Films</h3>
+        <p class="svc-p">Commercial storytelling made with a director's eye. We craft advertising films that go beyond the brief — bringing cinematic language to brand narratives.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Brand Films</span>
+          <span class="svc-tag">TVCs</span>
+          <span class="svc-tag">Digital Content</span>
+        </div>
+      </div>
+
+      <div class="service-col">
+        <div class="svc-num">03</div>
+        <span class="svc-ico">🎥</span>
+        <h3 class="svc-h">Documentary</h3>
+        <p class="svc-p">The world holds stories more compelling than any fiction. We document marginalised communities, vanishing languages, and lives that rarely find a frame.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Social Docs</span>
+          <span class="svc-tag">Cultural</span>
+          <span class="svc-tag">Ethnographic</span>
+        </div>
+      </div>
+
+      <div class="service-col">
+        <div class="svc-num">04</div>
+        <span class="svc-ico">🎞</span>
+        <h3 class="svc-h">Post Production</h3>
+        <p class="svc-p">Editing, colour grading, sound design, and finishing. Our post-production sensibility is shaped by our filmmaking roots — every cut is a directorial decision.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Editing</span>
+          <span class="svc-tag">Colour Grade</span>
+          <span class="svc-tag">Sound Design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SWAHA
+══════════════════════════════════════ -->
+<section class="swaha" id="swaha">
+  <div class="swaha-inner">
+
+    <div class="reveal">
+      <div class="sec-ey">Prajna Films Presents · Debut Feature</div>
+      <span class="swaha-lang">Magahi Language · Black &amp; White · 99 Minutes</span>
+      <h2 class="swaha-h">
+        स्वाहा<br>
+        <em>Swaha</em>
+      </h2>
+      <span class="swaha-en">In the Name of Fire</span>
+
+      <p class="swaha-p">Set in rural Bihar, <strong>Swaha</strong> follows Rukhiya — a determined mother abandoned by her husband, falsely accused of being a witch, left to feed her child against every force the world can summon. Shot almost entirely in <strong>black and white</strong>, the film gives its characters a haunting, timeless quality. In the final moments, colour returns. It is a sign of hope.</p>
+
+      <p class="swaha-p">Immersed in <strong>Magahi</strong> — an ancient language tracing back 2,500 years to the Buddhist era in central Bihar — the film weaves folk songs into its narrative, honouring a community whose cultural heritage faces extinction.</p>
+
+      <div class="awards-list reveal rd1">
+        <div class="aw">
+          <div class="aw-ico">✦</div>
+          <div>
+            <span class="aw-title">Golden Goblet Award — Best Director</span>
+            <span class="aw-sub">2024 Shanghai International Film Festival · Asian New Talent Competition</span>
+          </div>
+        </div>
+        <div class="aw">
+          <div class="aw-ico">✦</div>
+          <div>
+            <span class="aw-title">Golden Goblet Award — Best Actor · Satya Ranjan</span>
+            <span class="aw-sub">2024 Shanghai International Film Festival</span>
+          </div>
+        </div>
+        <div class="aw">
+          <div class="aw-ico">✦</div>
+          <div>
+            <span class="aw-title">India Premiere · Indian Cinema Now</span>
+            <span class="aw-sub">29th International Film Festival of Kerala · December 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="swaha-btns reveal rd2">
+        <a href="https://www.youtube.com/watch?v=Shsp5zxoxYQ" target="_blank" rel="noopener" class="btn-r">▶ Watch Trailer</a>
+        <a href="#contact" class="btn-o">Press &amp; Distribution</a>
+      </div>
+    </div>
+
+    <div class="reveal rd2">
+      <div class="poster" style="position:relative;overflow:hidden;">
+
+        <!-- REAL POSTER IMAGE -->
+        <img
+          src="poster.jpg"
+          alt="Swaha — A film by Abhilash Sharma, Prajna Films"
+          onerror="this.style.display='none'; document.getElementById('poster-fallback').style.display='flex';"
+          style="
+            width:100%;
+            height:100%;
+            min-height:520px;
+            object-fit:cover;
+            object-position:center top;
+            display:block;
+            filter:grayscale(100%) contrast(1.08);
+          "
+        >
+
+        <!-- Fallback styled poster if image missing -->
+        <div id="poster-fallback" style="display:none;">
+          <div class="poster-body">
+            <div>
+              <div class="poster-title-dev">स्वाहा</div>
+              <div class="poster-title-en">In The Name of Fire</div>
+              <div class="poster-line" style="margin-top:18px;"></div>
+            </div>
+            <div class="poster-still">
+              <div class="poster-still-txt">A film by Abhilash Sharma<br>Magahi · Black &amp; White · Rural Bihar</div>
+            </div>
+            <div class="poster-credits">
+              <span class="poster-cast">Sonalli Sharmisstha &amp; Satya Ranjan</span>
+              <span class="poster-prod">A Prajna Films Production · 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gradient overlay on top of real poster -->
+        <div style="
+          position:absolute;inset:0;
+          background:linear-gradient(to top,rgba(4,3,3,.88) 0%,rgba(4,3,3,.1) 50%,transparent 100%);
+          pointer-events:none;
+        "></div>
+
+        <!-- Red corner fold — always on top -->
+        <div style="
+          position:absolute;top:0;right:0;width:0;height:0;
+          border-top:52px solid var(--red);
+          border-left:52px solid transparent;
+          z-index:2;
+        "></div>
+
+        <!-- Film title overlay at bottom -->
+        <div style="
+          position:absolute;bottom:0;left:0;right:0;
+          padding:32px 28px 24px;
+          z-index:2;
+        ">
+          <div style="
+            font-family:var(--fd);font-size:44px;font-weight:300;
+            color:var(--white);line-height:1;letter-spacing:.06em;
+            margin-bottom:6px;
+          ">स्वाहा</div>
+          <div style="
+            font-family:var(--fs);font-size:9px;font-weight:200;
+            letter-spacing:.5em;text-transform:uppercase;
+            color:var(--silver);margin-bottom:14px;
+          ">In The Name of Fire</div>
+          <div style="width:28px;height:2px;background:var(--red);margin-bottom:14px;"></div>
+          <div style="
+            font-family:var(--fd);font-size:13px;
+            color:var(--silver);display:block;margin-bottom:4px;
+          ">Sonalli Sharmisstha &amp; Satya Ranjan</div>
+          <div style="
+            font-family:var(--fs);font-size:8px;font-weight:200;
+            letter-spacing:.38em;text-transform:uppercase;
+            color:var(--smoke);
+          ">A Prajna Films Production · 2024</div>
+        </div>
+
+      </div>
+
+      <div class="laurels reveal rd3">
+        <div class="lau">
+          <span class="lau-top">World Premiere</span>
+          <span class="lau-main">Shanghai IFF</span>
+          <span class="lau-yr">2024</span>
+        </div>
+        <div class="lau">
+          <span class="lau-top">India Premiere</span>
+          <span class="lau-main">IFFK</span>
+          <span class="lau-yr">2024</span>
+        </div>
+        <div class="lau">
+          <span class="lau-top">Golden Goblet</span>
+          <span class="lau-main">Best Director</span>
+          <span class="lau-yr">2024</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section class="about sec" id="about">
+  <div class="about-inner">
+    <div class="about-label">About Prajna Films</div>
+    <div class="about-right">
+      <div class="reveal">
+        <div class="sec-ey">Who We Are</div>
+        <h2>Cinema that challenges<br>perception and <em>evokes reflection.</em></h2>
+        <div class="divider"></div>
+        <p class="sec-p"><strong>Prajna Films</strong> is an independent film production house based in Mumbai, founded in 2021 with a commitment to stories that carry social and emotional weight. The name Prajna — derived from Sanskrit, meaning <em>wisdom</em> or <em>deep understanding</em> — reflects our belief that meaningful cinema begins with a profound understanding of the human condition.</p>
+        <p class="sec-p">We are drawn to stories that exist at the margins. Communities, languages, and lives that rarely find representation on screen. Our films are not made for the mainstream. They are made for the <strong>truth.</strong></p>
+      </div>
+
+      <div class="values reveal rd1">
+        <div class="val">
+          <div class="val-n">I</div>
+          <h3>Memory</h3>
+          <p>Cinema is an archive of human experience. We make films that the audience carries home — in silence, in sleep, in thought.</p>
+        </div>
+        <div class="val">
+          <div class="val-n">II</div>
+          <h3>Truth</h3>
+          <p>We seek stories that refuse easy answers. Discomfort, when honest, is the beginning of understanding.</p>
+        </div>
+        <div class="val">
+          <div class="val-n">III</div>
+          <h3>Transformation</h3>
+          <p>A film has done its work when the person who watched it is not quite the same as the person who sat down.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIRECTOR
+══════════════════════════════════════ -->
+<section class="director" id="director">
+  <div class="director-inner">
+
+    <div class="dir-portrait">
+      <!-- FOUNDER PHOTO -->
+      <img
+        src="founder.jpg"
+        alt="Abhilash Sharma — Director and Founder, Prajna Films"
+        onerror="this.style.display='none'; document.getElementById('dir-fallback').style.display='flex';"
+        style="
+          width:100%;
+          height:100%;
+          min-height:560px;
+          object-fit:cover;
+          object-position:center top;
+          display:block;
+          filter:grayscale(100%) contrast(1.05);
+        "
+      >
+      <!-- Fallback if image not found -->
+      <div id="dir-fallback" style="display:none;width:100%;height:100%;min-height:560px;
+        align-items:center;justify-content:center;padding:64px 52px;background:var(--charcoal);">
+        <div class="dir-frame">
+          <span class="dir-initial">AS</span>
+          <div class="dir-card">
+            <span class="dir-name">Abhilash Sharma</span>
+            <span class="dir-role">Director &amp; Founder</span>
+            <span class="dir-org">Prajna Films · Mumbai</span>
+          </div>
+        </div>
+      </div>
+      <!-- Name overlay always visible on top of photo -->
+      <div style="
+        position:absolute;bottom:0;left:0;right:0;
+        padding:48px 36px 32px;
+        background:linear-gradient(to top,rgba(4,3,3,.95) 0%,rgba(4,3,3,.6) 60%,transparent 100%);
+      ">
+        <span style="
+          font-family:var(--fd);font-size:30px;font-weight:600;
+          color:var(--white);display:block;margin-bottom:6px;
+          letter-spacing:.04em;
+        ">Abhilash Sharma</span>
+        <span style="
+          font-family:var(--fs);font-size:10px;font-weight:300;
+          letter-spacing:.48em;text-transform:uppercase;
+          color:var(--red);display:block;margin-bottom:4px;
+        ">Director &amp; Founder</span>
+        <span style="
+          font-family:var(--fs);font-size:9px;font-weight:200;
+          letter-spacing:.42em;text-transform:uppercase;
+          color:var(--smoke);display:block;
+        ">Prajna Films · Mumbai</span>
+      </div>
+    </div>
+
+    <div class="dir-bio reveal">
+      <div class="sec-ey">The Director</div>
+      <h2 class="dir-bio-h">A filmmaker who finds<br><em>truth in the margins.</em></h2>
+
+      <p>Born in the heartland of India, <strong>Abhilash Sharma</strong> spent childhood summers in the villages of Bihar — where the seeds of his most personal film were unknowingly planted. That child's fear of the Musahar community would become a filmmaker's reckoning, and eventually, <em>Swaha</em>.</p>
+
+      <p>After completing his schooling at <strong>St. Anthony High School, Dhanbad</strong>, he moved to Mumbai where he spent four formative years as an <strong>assistant director</strong>, absorbing the craft from the inside out. He debuted as a feature director in 2012 with <strong><em>Achal Rahe Suhaag</em></strong> — a modern retelling of the Savitri-Satyavan myth.</p>
+
+      <p>His films gravitate toward <strong>women's narratives within the socio-political landscape</strong>, shaped by Buddhism's philosophy of compassion, the cadences of his mother's Magahi, and a voracious appetite for world cinema. He is currently developing a new project set in <strong>Kolkata</strong>.</p>
+
+      <p>With strong roots in <strong>literature and theatre</strong>, Abhilash's cinematic voice is spare, compassionate, and unafraid of silence.</p>
+
+      <div class="dir-stats">
+        <div class="ds">
+          <span class="ds-n">15<em>+</em></span>
+          <span class="ds-l">Years in Film</span>
+        </div>
+        <div class="ds">
+          <span class="ds-n">2</span>
+          <span class="ds-l">Feature Films</span>
+        </div>
+        <div class="ds">
+          <span class="ds-n">2<em>★</em></span>
+          <span class="ds-l">Golden Goblets</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PHILOSOPHY
+══════════════════════════════════════ -->
+<section class="philoq" id="philosophy">
+  <div class="philoq-inner">
+    <div class="philoq-eye">Our Philosophy</div>
+    <blockquote>
+      <p>"Cinema is not merely entertainment — it is an experience of memory, silence, tension, and <em>transformation.</em> We seek stories that linger, that disturb, that illuminate."</p>
+      <cite>Prajna Films</cite>
+    </blockquote>
+  </div>
+
+  <div class="philo-grid reveal" style="max-width:1100px;margin:90px auto 0;">
+    <div class="philo-card">
+      <div class="philo-n">01</div>
+      <h3>The Marginalised Voice</h3>
+      <p>Stories from the edges of society carry the sharpest truths. We make films about communities, languages, and lives that are disappearing — because cinema is also an act of preservation.</p>
+    </div>
+    <div class="philo-card">
+      <div class="philo-n">02</div>
+      <h3>The Black &amp; White Eye</h3>
+      <p>Colour can seduce. Black and white demands honesty. When we strip away colour, what remains is the raw geometry of human experience — light, shadow, and truth.</p>
+    </div>
+    <div class="philo-card">
+      <div class="philo-n">03</div>
+      <h3>Language as Character</h3>
+      <p>Magahi, Kathi script, folk songs 2,500 years old — in our films, the language is not a vehicle for story. It is part of the story. Every word carries a world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PRESS
+══════════════════════════════════════ -->
+<section class="press sec-sm" id="press">
+  <div class="press-inner">
+    <div class="sec-ey reveal">Press &amp; Recognition</div>
+    <h2 class="sec-h reveal" style="max-width:620px;margin-bottom:0;">What the world is saying<br>about <em>Swaha</em></h2>
+
+    <div class="press-grid">
+      <div class="press-card reveal">
+        <span class="press-src">Scroll.in</span>
+        <p class="press-q">"A visually striking exploration of rural blight. Sharma's film has empathy for its characters and a deep understanding of the world it inhabits."</p>
+        <a href="https://scroll.in/reel/1076759/swaha-review-a-visually-striking-exploration-of-rural-blight" target="_blank" rel="noopener" class="press-lnk">Read Review →</a>
+      </div>
+      <div class="press-card reveal rd1">
+        <span class="press-src">The Print</span>
+        <p class="press-q">"Sharma had to combat his own childhood fears to make this film. Swaha is an attempt to address that ignorance — and it burns with quiet conviction."</p>
+        <a href="https://theprint.in/feature/reel-take/this-director-was-told-musahars-were-evil-new-film-tackles-their-marginalisation-his-bias/2402959/" target="_blank" rel="noopener" class="press-lnk">Read Article →</a>
+      </div>
+      <div class="press-card reveal rd2">
+        <span class="press-src">Platform Magazine</span>
+        <p class="press-q">"His mother's command of Magahi has significantly influenced his writing — lending a layer of intimacy and authenticity to his stories."</p>
+        <a href="https://www.platform-mag.com/film/swaha.html" target="_blank" rel="noopener" class="press-lnk">Read Feature →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-eye">Reach Out</div>
+    <h2>Let's Talk<br><em>Cinema</em></h2>
+    <p class="sec-p" style="margin:0 auto 44px;">For press enquiries, distribution, festival screenings, ad film production, collaboration, or simply a conversation about cinema — we'd like to hear from you.</p>
+    <div class="contact-row">
+      <div class="ci">
+        <span class="ci-lbl">General</span>
+        <span class="ci-val"><a href="mailto:info@prajnafilms.in">info@prajnafilms.in</a></span>
+      </div>
+      <div class="ci">
+        <span class="ci-lbl">Director</span>
+        <span class="ci-val"><a href="mailto:abhilash@prajnafilms.in">abhilash@prajnafilms.in</a></span>
+      </div>
+      <div class="ci">
+        <span class="ci-lbl">Based in</span>
+        <span class="ci-val">Mumbai, India</span>
+      </div>
+    </div>
+    <a href="mailto:info@prajnafilms.in" class="btn-w">Send a Message</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div>
+        <span class="fb-logo">Prajna<b> Films</b></span>
+        <span class="fb-sub">Independent Cinema · Mumbai · Est. 2021</span>
+        <p class="fb-desc">Devoted to cinematic storytelling rooted in emotion, memory, and transformation. Stories from the margins — for the world.</p>
+        <p style="font-family:var(--fs);font-size:9px;letter-spacing:.3em;color:var(--smoke);margin-top:18px;">prajnafilms.in</p>
+      </div>
+      <div class="fc">
+        <h4>Films</h4>
+        <ul>
+          <li><a href="#swaha">Swaha (2024)</a></li>
+          <li><a href="#swaha">Watch Trailer</a></li>
+          <li><a href="#press">Press Kit</a></li>
+          <li><a href="#contact">Distribution</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#work">What We Do</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#director">Abhilash Sharma</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:info@prajnafilms.in">Email</a></li>
+          <li><a href="mailto:abhilash@prajnafilms.in">Director</a></li>
+          <li><a href="#press">Press</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Shsp5zxoxYQ" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>© 2024 Prajna Films · prajnafilms.in · All Rights Reserved · Mumbai, India</p>
+      <ul class="ft-blinks">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#press">Press Kit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Cursor ──
+const cur=document.getElementById('cur'),cring=document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function loop(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  cring.style.left=rx+'px';cring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+if('ontouchstart' in window||navigator.maxTouchPoints>0){
+  cur.style.display='none';cring.style.display='none';
+  document.body.style.cursor='auto';
+}
+document.querySelectorAll('.btn-r,.aw,.ticker,.hero-service.red-s').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('r');cring.classList.add('r');});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('r');cring.classList.remove('r');});
+});
+
+// ── Nav scroll ──
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>70),{passive:true});
+
+// ── Hamburger ──
+const ham=document.getElementById('ham'),drw=document.getElementById('drawer');
+ham.addEventListener('click',e=>{
+  e.stopPropagation();
+  const o=drw.classList.toggle('open');
+  ham.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+});
+document.querySelectorAll('.dl').forEach(a=>a.addEventListener('click',()=>{
+  drw.classList.remove('open');ham.classList.remove('open');
+  document.body.style.overflow='';
+}));
+document.addEventListener('click',e=>{
+  if(drw.classList.contains('open')&&!nav.contains(e.target)&&!drw.contains(e.target)){
+    drw.classList.remove('open');ham.classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+
+// ── Scroll reveal ──
+const io=new IntersectionObserver(entries=>
+  entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');}),
+  {threshold:.09,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
